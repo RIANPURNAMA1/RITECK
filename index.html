@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riteck - Jasa Pembuatan Website & Sistem Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+        /* Maroon/Red Color Variables */
+        :root {
+            --maroon: #800020;
+            --maroon-dark: #5c0016;
+            --maroon-light: #a0002a;
+            --maroon-bg: #fff0f3;
+            --maroon-border: #ffd6de;
+            --maroon-shadow: rgba(128, 0, 32, 0.15);
+        }
+
+        /* Custom maroon utility overrides */
+        .bg-maroon { background-color: var(--maroon); }
+        .bg-maroon-dark { background-color: var(--maroon-dark); }
+        .bg-maroon-light { background-color: var(--maroon-light); }
+        .bg-maroon-50 { background-color: var(--maroon-bg); }
+        .text-maroon { color: var(--maroon); }
+        .text-maroon-200 { color: #ffb3c1; }
+        .text-maroon-400 { color: #ff6b8a; }
+        .border-maroon { border-color: var(--maroon); }
+        .border-maroon-200 { border-color: var(--maroon-border); }
+        .shadow-maroon { box-shadow: 0 10px 40px var(--maroon-shadow); }
+        .hover-maroon:hover { background-color: var(--maroon-dark); }
+
+        .nav-link:hover { color: var(--maroon); }
+        .nav-link::after { background-color: var(--maroon) !important; }
+
+        .group:hover .group-icon { background-color: var(--maroon) !important; color: white !important; }
+
+        .pricing-bar-maroon { background-color: var(--maroon); }
+        .pricing-bar-rose { background-color: #e11d48; }
+
+        .btn-maroon {
+            background-color: var(--maroon);
+            color: white;
+            transition: all 0.2s;
+        }
+        .btn-maroon:hover {
+            background-color: var(--maroon-dark);
+            box-shadow: 0 8px 30px var(--maroon-shadow);
+        }
+
+        .recommended-card {
+            background-color: var(--maroon);
+        }
+
+        .check-maroon { color: var(--maroon); }
+        .check-rose { color: #e11d48; }
+        .check-red { color: #ef4444; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900">
+
+<nav class="fixed w-full z-50 top-0 px-6 py-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/80 backdrop-blur-md border border-slate-200/60 px-6 py-3 rounded-md shadow-sm relative">
+        
+        <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="w-8 h-8 rounded-md flex items-center justify-center text-white transition-transform group-hover:rotate-12 bg-maroon">
+                <i class="fa-solid fa-layer-group text-xs"></i>
+            </div>
+            <div class="text-xl font-black tracking-tighter text-slate-900 uppercase">
+                RI<span class="text-maroon">TECK</span>
+            </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-10">
+            <div class="flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#layanan" class="nav-link hover:text-[#800020] transition-colors relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:-bottom-1 hover:after:w-full after:transition-all" style="--tw-after-bg: #800020;">Layanan</a>
+                <a href="#teknologi" class="nav-link hover:text-[#800020] transition-colors relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Teknologi</a>
+                <a href="#harga" class="nav-link hover:text-[#800020] transition-colors relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Harga</a>
+            </div>
+            
+            <div class="h-4 w-[1px] bg-slate-200"></div>
+
+            <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20konsultasi%20gratis%20mengenai%20layanan%20digital." 
+               class="btn-maroon px-6 py-2.5 rounded-md text-[11px] font-extrabold uppercase tracking-wider active:scale-95">
+                Konsultasi Gratis
+            </a>
+        </div>
+
+        <div class="md:hidden text-slate-600 cursor-pointer p-2" id="mobile-menu-button">
+            <i class="fa-solid fa-bars-staggered text-xl" id="menu-icon"></i>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-md shadow-xl p-6 flex-col gap-6 md:hidden">
+            <div class="flex flex-col gap-4 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#layanan" class="mobile-link py-2 border-b border-slate-50 hover:text-[#800020]">Layanan</a>
+                <a href="#teknologi" class="mobile-link py-2 border-b border-slate-50 hover:text-[#800020]">Teknologi</a>
+                <a href="#harga" class="mobile-link py-2 border-b border-slate-50 hover:text-[#800020]">Harga</a>
+            </div>
+            <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20konsultasi%20gratis%20mengenai%20layanan%20digital." 
+               class="btn-maroon px-6 py-3 rounded-md text-[11px] font-extrabold uppercase tracking-center text-center tracking-wider active:scale-95">
+                Konsultasi Gratis
+            </a>
+        </div>
+    </div>
+</nav>
+
+   <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="bg-[#fff0f3] text-[#800020] px-3 py-1 rounded-md text-xs font-bold tracking-widest uppercase">#DigitalAgency</span>
+                <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900">
+                    Bangun Website Profesional & <span class="text-[#800020]">Sistem Digital</span> untuk Bisnis Anda
+                </h1>
+                <p class="text-base text-slate-500 leading-relaxed max-w-lg">
+                    Kami membantu bisnis, UMKM, dan startup membangun website modern dan sistem aplikasi berbasis web dengan teknologi terbaru.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20tertarik%20untuk%20mulai%20proyek%20pembuatan%20website/sistem.%20Bisa%20bantu?" 
+                       class="btn-maroon px-8 py-3 rounded-md font-bold transition flex items-center gap-2 shadow-lg" style="box-shadow: 0 4px 20px rgba(128,0,32,0.2);">
+                        Mulai Proyek <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    
+                    <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20konsultasi%20terlebih%20dahulu%20mengenai%20kebutuhan%20digital%20saya." 
+                       class="border border-slate-200 bg-white text-slate-900 px-8 py-3 rounded-md font-bold hover:bg-slate-50 transition text-center">
+                        Konsultasi
+                    </a>
+                </div>
+                <div class="flex gap-6 pt-4">
+                    <div class="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                        <i class="fa-solid fa-check" style="color:#800020;"></i> Desain Responsif
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                        <i class="fa-solid fa-check" style="color:#800020;"></i> Support Maintenance
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000" 
+                     class="rounded-md shadow-2xl border border-slate-200 transform hover:scale-[1.02] transition-transform duration-500" 
+                     alt="Work Desk">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-3xl mb-4" style="color:#800020;"><i class="fa-solid fa-bolt-lightning"></i></div>
+                    <h4 class="font-bold text-slate-900 mb-2">Performa Cepat</h4>
+                    <p class="text-xs text-slate-500">Optimasi kecepatan akses maksimal untuk kenyamanan user.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-3xl mb-4" style="color:#800020;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="font-bold text-slate-900 mb-2">Keamanan Terjamin</h4>
+                    <p class="text-xs text-slate-500">Implementasi standar keamanan web terbaru untuk data Anda.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-3xl mb-4" style="color:#800020;"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h4 class="font-bold text-slate-900 mb-2">Mobile Friendly</h4>
+                    <p class="text-xs text-slate-500">Tampilan sempurna di smartphone, tablet, maupun desktop.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-3xl mb-4" style="color:#800020;"><i class="fa-solid fa-headset"></i></div>
+                    <h4 class="font-bold text-slate-900 mb-2">Support Prioritas</h4>
+                    <p class="text-xs text-slate-500">Bantuan teknis pasca proyek untuk memastikan sistem stabil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Layanan Unggulan Kami</h2>
+                <div class="w-20 h-1 mx-auto rounded-md" style="background-color:#800020;"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-md border border-slate-200 hover:border-[#ffd6de] hover:shadow-md transition group">
+                    <div class="w-12 h-12 bg-slate-100 rounded-md flex items-center justify-center text-xl mb-6 transition group-icon" style="color:#800020;">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Landing Page & Web</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4 text-justify">Pembuatan Company Profile dan Landing Page produk dengan optimasi SEO dan kecepatan akses.</p>
+                </div>
+                <div class="p-8 rounded-md border border-slate-200 hover:border-[#ffd6de] hover:shadow-md transition group">
+                    <div class="w-12 h-12 bg-slate-100 rounded-md flex items-center justify-center text-xl mb-6 transition group-icon" style="color:#800020;">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Sistem Management</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4 text-justify">Sistem kasir, presensi, dashboard admin, hingga manajemen data yang dibuat custom.</p>
+                </div>
+                <div class="p-8 rounded-md border border-slate-200 hover:border-[#ffd6de] hover:shadow-md transition group">
+                    <div class="w-12 h-12 bg-slate-100 rounded-md flex items-center justify-center text-xl mb-6 transition group-icon" style="color:#800020;">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Google Sheet System</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4 text-justify">Solusi sistem ringan berbasis Spreadsheet untuk efisiensi operasional UMKM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan hover icon fix via inline JS workaround using CSS -->
+    <style>
+        .service-card:hover .service-icon {
+            background-color: #800020 !important;
+            color: white !important;
+        }
+    </style>
+
+<section id="teknologi" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto bg-slate-900 rounded-md p-10 text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-2">Modern Tech Stack</h2>
+                <p class="text-slate-400 mb-10 text-sm">Kami menggunakan ekosistem teknologi terbaru untuk skalabilitas dan keamanan sistem Anda.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#ff6b8a;">Frontend</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">React JS</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Next JS</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">HTML5 / CSS3</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Tailwind CSS</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Bootstrap</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">TypeScript</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#ff6b8a;">Backend & Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Node.js</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Express.js</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Laravel (PHP)</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">MERN Stack</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">REST API</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">GraphQL</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#ff6b8a;">Database</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">MySQL</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">PostgreSQL</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">MongoDB</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#ff6b8a;">Integrasi API</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">WhatsApp API</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Payment Gateway</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Google Maps</span>
+                            <span class="border border-slate-700 px-3 py-1.5 rounded-md text-[11px] font-semibold bg-slate-800/50">Auth System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute right-0 bottom-0 opacity-5 p-4 pointer-events-none">
+                <i class="fa-solid fa-code-merge text-[15rem]"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Cara Kami Bekerja</h2>
+                <p class="text-slate-500 text-sm italic">Proses transparan untuk hasil yang maksimal.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="relative text-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4 border-2" style="background-color:#fff0f3; color:#800020; border-color:#800020;">1</div>
+                    <h5 class="font-bold text-sm">Konsultasi</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Diskusi kebutuhan & penentuan fitur sistem.</p>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4 border-2" style="background-color:#fff0f3; color:#800020; border-color:#800020;">2</div>
+                    <h5 class="font-bold text-sm">UI/UX Design</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Perancangan tampilan yang modern & intuitif.</p>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4 border-2" style="background-color:#fff0f3; color:#800020; border-color:#800020;">3</div>
+                    <h5 class="font-bold text-sm">Development</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Proses coding menggunakan teknologi terbaru.</p>
+                </div>
+                <div class="relative text-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4" style="background-color:#800020; color:white;">4</div>
+                    <h5 class="font-bold text-sm">Launch</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Testing, deployment ke server & serah terima.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section id="harga" class="py-24 px-6 bg-slate-50/50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em]" style="color:#800020;">Pricing Plans</span>
+            <h2 class="text-4xl font-extrabold text-slate-900 mt-3 mb-4">Investasi Bisnis Digital</h2>
+            <p class="text-slate-500 text-sm leading-relaxed">Pilih paket yang sesuai dengan kebutuhan skala bisnis Anda.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
+            
+            <div class="bg-white p-7 border border-slate-200 rounded-md flex flex-col transition hover:shadow-lg group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 transition" style="transition: background 0.2s;"></div>
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">Service Kecil</h4>
+                <div class="mb-6">
+                    <span class="text-3xl font-black text-slate-900">50rb</span>
+                    <p class="text-[10px] text-slate-400 mt-1 font-medium">Per Fitur / Bug Fix</p>
+                </div>
+                <ul class="text-[11px] space-y-4 text-slate-600 mb-8 flex-grow">
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#800020;"></i> <span>Custom Script Ringan</span></li>
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#800020;"></i> <span>Perbaikan Bug Minor</span></li>
+                </ul>
+                <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20order%20Paket%20Service%20Kecil%20(50rb)." class="w-full py-3 rounded-md border border-slate-200 text-slate-900 text-[11px] text-center font-bold uppercase tracking-wider hover:bg-slate-50 transition">Pilih Paket</a>
+            </div>
+
+            <div class="bg-white p-7 border border-slate-200 rounded-md flex flex-col transition hover:shadow-lg group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 transition"></div>
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">G-Sheet Cloud</h4>
+                <div class="mb-6">
+                    <span class="text-3xl font-black text-slate-900">500rb</span>
+                    <p class="text-[10px] text-slate-400 mt-1 font-medium">No Server Cost</p>
+                </div>
+                <ul class="text-[11px] space-y-4 text-slate-600 mb-8 flex-grow">
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#c0392b;"></i> <span>Dashboard Report Otomatis</span></li>
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#c0392b;"></i> <span>Google Apps Script</span></li>
+                </ul>
+                <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20tertarik%20dengan%20Paket%20G-Sheet%20Cloud%20(500rb)." class="w-full py-3 rounded-md border border-slate-200 text-slate-900 text-[11px] text-center font-bold uppercase tracking-wider hover:bg-slate-50 transition">Pilih Paket</a>
+            </div>
+
+            <div class="bg-white p-7 border border-slate-200 rounded-md flex flex-col transition hover:shadow-lg group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 transition"></div>
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">Landing Page</h4>
+                <div class="mb-6">
+                    <span class="text-3xl font-black text-slate-900">800rb</span>
+                    <p class="text-[10px] text-slate-400 mt-1 font-medium">HTML5 / Tailwind / JS</p>
+                </div>
+                <ul class="text-[11px] space-y-4 text-slate-600 mb-8 flex-grow">
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#e74c3c;"></i> <span>High Performance SEO</span></li>
+                    <li class="flex items-start"><i class="fa-solid fa-check-circle mt-0.5 mr-2" style="color:#e74c3c;"></i> <span>Integrasi WhatsApp</span></li>
+                </ul>
+                <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20buat%20Website%20Landing%20Page%20(800rb)." class="w-full py-3 rounded-md bg-slate-900 text-white text-[11px] text-center font-bold uppercase tracking-wider hover:bg-slate-800 transition">Mulai Proyek</a>
+            </div>
+
+            <div class="p-7 rounded-md flex flex-col text-white shadow-2xl transform lg:-translate-y-6 relative overflow-hidden" style="background-color:#800020; box-shadow: 0 25px 50px rgba(128,0,32,0.3);">
+                <div class="absolute top-0 right-0 p-2">
+                    <span class="bg-white/20 text-[9px] font-bold px-2 py-1 rounded uppercase tracking-tighter">Recommended</span>
+                </div>
+                <h4 class="text-[10px] font-bold uppercase tracking-widest mb-6" style="color:#ffb3c1;">Website Bisnis</h4>
+                <div class="mb-6">
+                    <span class="text-3xl font-black text-white">2.5jt</span>
+                    <p class="text-[10px] mt-1 font-medium italic" style="color:#ffb3c1;">React / Laravel / AI Assistant</p>
+                </div>
+                <ul class="text-[11px] space-y-4 mb-8 flex-grow" style="color:#ffe0e6;">
+                    <li class="flex items-start"><i class="fa-solid fa-circle-check mt-0.5 mr-2" style="color:#ffb3c1;"></i> <span>Dashboard CMS Modern</span></li>
+                    <li class="flex items-start"><i class="fa-solid fa-sparkles mt-0.5 mr-2" style="color:#ffd700;"></i> <span>AI Content Generator</span></li>
+                </ul>
+                <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20tertarik%20dengan%20Paket%20Website%20Bisnis%20Pro%20(2.5jt)." class="w-full py-3 rounded-md bg-white text-[11px] text-center font-bold uppercase tracking-wider hover:bg-red-50 transition shadow-lg" style="color:#800020;">Konsultasi Pro</a>
+            </div>
+
+            <div class="bg-slate-900 p-7 rounded-md flex flex-col text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 rounded-full blur-2xl" style="background-color:rgba(128,0,32,0.2);"></div>
+                <h4 class="text-[10px] font-bold uppercase tracking-widest mb-6 tracking-[0.2em]" style="color:#ff6b6b;">Enterprise AI</h4>
+                <div class="mb-6">
+                    <span class="text-3xl font-black text-white">5jt+</span>
+                    <p class="text-[10px] text-slate-400 mt-1 font-medium italic">Next.js / AI API</p>
+                </div>
+                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 flex-grow">
+                    <li class="flex items-start"><i class="fa-solid fa-bolt mt-0.5 mr-2" style="color:#ff6b6b;"></i> <span class="text-slate-200">ChatGPT Integration</span></li>
+                    <li class="flex items-start"><i class="fa-solid fa-bolt mt-0.5 mr-2" style="color:#ff6b6b;"></i> <span class="text-slate-200">Custom Business System</span></li>
+                </ul>
+                <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20ingin%20diskusi%20mengenai%20Sistem%20Custom%20Enterprise%20/%20AI." class="w-full py-3 rounded-md text-[11px] text-center font-bold uppercase tracking-wider hover:opacity-90 transition shadow-lg" style="background-color:#c0392b; color:white;">Custom Request</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto bg-slate-900 rounded-md p-12 text-center relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 rounded-full blur-3xl" style="background-color:rgba(128,0,32,0.25);"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 rounded-full blur-3xl" style="background-color:rgba(128,0,32,0.12);"></div>
+
+            <div class="relative z-10">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] mb-4 block" style="color:#ff6b8a;">Let's Collaborate</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Siap Mengubah Ide Anda <br> Menjadi <span style="color:#ff6b8a;">Realitas Digital?</span></h2>
+                <p class="text-slate-400 text-sm mb-10 max-w-lg mx-auto leading-relaxed">
+                    Jangan biarkan kendala teknis menghambat pertumbuhan bisnis Anda. Konsultasikan kebutuhan sistem Anda dan dapatkan penawaran terbaik hari ini.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20saya%20siap%20untuk%20memulai%20proyek%20dan%20ingin%20diskusi%20lebih%20lanjut." 
+                       class="text-white px-10 py-4 rounded-md font-bold text-xs uppercase tracking-widest active:scale-95 flex items-center justify-center gap-2 transition-all" style="background-color:#800020; hover:box-shadow: 0 8px 30px rgba(128,0,32,0.4);"
+                       onmouseover="this.style.backgroundColor='#5c0016'" onmouseout="this.style.backgroundColor='#800020'">
+                        <i class="fa-solid fa-paper-plane"></i> Hubungi Kami
+                    </a>
+                    
+                    <a href="https://wa.me/6285773141623?text=Halo%20Riteck,%20bisa%20tanya-tanya%20sebentar%20via%20WhatsApp?" 
+                       class="bg-slate-800 text-white border border-slate-700 px-10 py-4 rounded-md font-bold text-xs uppercase tracking-widest hover:bg-slate-700 transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i> WhatsApp Fast Respon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            <div>
+                <div class="text-xl font-black text-slate-900 uppercase mb-4">
+                    RI<span style="color:#800020;">TECK</span>
+                </div>
+                <p class="text-[10px] text-slate-400 font-medium">Digital Solution for Better Business.</p>
+            </div>
+            <div class="flex justify-center gap-6">
+                <a href="#" class="text-slate-400 transition hover:text-[#800020]"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="text-slate-400 transition hover:text-[#800020]"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="#" class="text-slate-400 transition hover:text-[#800020]"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest md:text-right">
+                &copy; 2026 Riteck Digital Dev. <br> Built with Precision.
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            menuIcon.classList.replace('fa-bars-staggered', 'fa-xmark');
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            menuIcon.classList.replace('fa-xmark', 'fa-bars-staggered');
+        }
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            menuIcon.classList.replace('fa-xmark', 'fa-bars-staggered');
+        });
+    });
+
+    // Service card icon hover effect
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.querySelector('.service-icon').style.backgroundColor = '#800020';
+            card.querySelector('.service-icon').style.color = 'white';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.querySelector('.service-icon').style.backgroundColor = '#f1f5f9';
+            card.querySelector('.service-icon').style.color = '#800020';
+        });
+    });
+</script>
+</body>
+</html>
